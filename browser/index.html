@@ -42,7 +42,7 @@
           <section ng-controller="playlistsList">
             <h4 class="text-muted">PLAYLISTS</h4>
             <p class="playlist-item" ng-repeat="playlist in playlists">
-              <a>{{playlist.name}}</a>
+              <a ui-sref="playlistView({playlistId: playlist.id})">{{playlist.name}}</a>
             </p>
             <p>
               <a ui-sref="newPlaylist" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-plus"></span> PLAYLIST</a>

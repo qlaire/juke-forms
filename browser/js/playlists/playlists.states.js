@@ -6,4 +6,10 @@ juke.config(function ($stateProvider) {
     templateUrl: '/js/playlists/templates/playlists.html',
     controller: 'playlists'
   });
+
+  $stateProvider.state('playlistView', {
+    url: '/playlists/:playlistId',
+    templateUrl: 'js/playlists/templates/playlist.html',
+    controller: 'playlistView'
+  });
 });
