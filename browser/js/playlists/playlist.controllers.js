@@ -51,7 +51,6 @@ juke.controller('playlistView', function($scope, $log, PlaylistFactory, PlayerFa
   $scope.submit = function() {
     PlaylistFactory.addSong($scope.playlist.id, $scope.newSong)
     .then(function(data) {
-      data = SongFactory.convert(data);
       $scope.playlist.songs.push(data);
       $log.log('the added song:', data);
       $scope.newSong = {};

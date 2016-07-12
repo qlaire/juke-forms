@@ -1,6 +1,6 @@
 'use strict';
 
-juke.factory('PlaylistFactory', function($http) {
+juke.factory('PlaylistFactory', function($http, SongFactory) {
 
   var cachedPlaylists = [];
 
@@ -27,6 +27,10 @@ juke.factory('PlaylistFactory', function($http) {
     return $http.get('api/playlists/' + id)
     .then(function (response) {
       return response.data;
+    })
+    .then(function(playlist) {
+      playlist.songs = playlist.songs.map(SongFactory.convert);
+      return playlist;
     });
   };
 
@@ -34,7 +38,8 @@ juke.factory('PlaylistFactory', function($http) {
     return $http.post('api/playlists/' + playlistId + '/songs', song)
     .then(function(response) {
       return response.data;
-    });
+    })
+    .then(SongFactory.convert);
   };
 
   return PlaylistFactory;
