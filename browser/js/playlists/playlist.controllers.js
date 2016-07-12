@@ -9,7 +9,6 @@ juke.controller('playlists', function($scope, $log, PlaylistFactory, $state) {
       $state.go('playlistView', {playlistId: data.id});
     });
   };
-  
 });
 
 juke.controller('playlistsList', function($scope, $log, PlaylistFactory) {
@@ -58,4 +57,4 @@ juke.controller('playlistView', function($scope, $log, PlaylistFactory, PlayerFa
       $scope.newSong = {};
     });
   };
-})
+});
